@@ -7,10 +7,10 @@ Some quick python scripts useful for DevOps/Sysadmin tasks.
 To add/authorize a rule for a security group.
 
 #### Prequisite
-boto3 >= v1.4.7 
-python 2.7
+* boto3 >= v1.4.7 
+* python 2.7
 
-Example:
+**Usage:**
 ```
 ./authorize-sg.py --help
 usage: authorize-sg.py [-h] security_group port_number ip region description
@@ -27,7 +27,7 @@ optional arguments:
 
 ```
 
-Example on how to run:
+**Example:**
 ```
 ./authorize-sg.py sg-821c91n4 80 34.250.77.12/32 us-east-1 my-public-ip
 ```
