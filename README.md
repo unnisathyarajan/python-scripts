@@ -38,4 +38,4 @@ optional arguments:
 
 aws_security_groups_cli_update/revoke-sg.py
 -------------------------------------------
-To delete/revoke a rule in a security group.
+To delete/revoke a rule in a security group. (rest is same as above.)
