@@ -3,8 +3,7 @@
 Some quick python scripts useful for DevOps/Sysadmin tasks.
 
 ### aws_security_groups_cli_update/authorize-sg.py
-
-To add/authorize a rule for a security group.
+To add/authorize a rule in a security group.
 
 #### Configuration
 
@@ -36,3 +35,5 @@ optional arguments:
 ./authorize-sg.py sg-821c91n4 80 34.250.77.12/32 us-east-1 my-public-ip
 ```
 
+### aws_security_groups_cli_update/revoke-sg.py
+To delete/revoke a rule in a security group.
