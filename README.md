@@ -6,6 +6,10 @@ Some quick python scripts useful for DevOps/Sysadmin tasks.
 
 To add/authorize a rule for a security group.
 
+#### Configuration
+
+[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+
 #### Prequisite
 * boto3 >= v1.4.7 
 * python 2.7
