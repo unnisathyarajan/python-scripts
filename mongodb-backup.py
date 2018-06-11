@@ -26,7 +26,7 @@ def s3_upload(access_keys,secret_keys,source_file,dest_s3_obj_name,bucket_name):
  
 
 
-def mongodb_backup(dump_dir):
+def mongodb_backup(dump_dir,database_name):
  snap_date = date.today().isoformat()
 #Create dump directory
  if not os.path.exists(dump_dir):
@@ -35,12 +35,12 @@ def mongodb_backup(dump_dir):
  
 #Mongodump Command
  try:
-  return_stat = subprocess.call(['/usr/bin/mongodump','--db','talk','--out',dump_dir])
+  return_stat = subprocess.call(['/usr/bin/mongodump','--db', database_name ,'--out',dump_dir])
  except:
   print("Error! Failed to talk mongodump")
  
 #Append date with dump directory name
- dump_dir_snap_name= dump_dir +"/talk-"+ str(snap_date)
+ dump_dir_snap_name= dump_dir +"/"+database_name+"-"+ str(snap_date)
  
 
  if not return_stat:
@@ -73,18 +73,25 @@ def main():
  parser.add_argument("--sk", help="Secret Key (sk), Example: fg3iubaaLDpNiz0swzgHaL")
  parser.add_argument("--dir", help="Dump Directory, Default: /mongodb-snapshot", nargs='?', default="/mongodb-snapshot")
  parser.add_argument("--s3bucket", help="S3 bucket name, Example: mongodb-backup-bucket")
+ parser.add_argument("--dbname", help="MongoDB database name, Example: myappdb")
  parser.add_argument("--ret", help="Retention in days, Default: 7 (7 days of backup will be retained without deletion)", nargs='?', type=int, default=7)
  args = parser.parse_args()
 
 
+#S3 Argument mandatory
  if args.s3bucket:
   bucket_name=args.s3bucket
  else:
   print("Please specify S3 Bucket")
   exit()
 
+#MongoDB DB name mandatory
+ if not args.dbname: 
+  print("Please specify MongoDB database name")
+  exit()
+
 #MongoDB Backup Function
- zip_name = mongodb_backup(args.dir)
+ zip_name = mongodb_backup(args.dir,args.dbname)
  s3_oject_name = zip_name.split("/")[2]
 
 #Upload to S3 Bucket
