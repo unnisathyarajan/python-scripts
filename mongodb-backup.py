@@ -45,7 +45,7 @@ def mongodb_backup(dump_dir,database_name):
 
  if not return_stat:
    if not os.path.exists(dump_dir_snap_name):
-    os.renames(dump_dir+"/talk",dump_dir_snap_name)
+    os.renames(dump_dir+"/"+database_name,dump_dir_snap_name)
    #shutil.make_archive(dump_dir_snap_name,'zip',dump_dir_snap_name,dump_dir_snap_name)
 #Create a zip file of the dump directory for upload
    shutil.make_archive(dump_dir_snap_name,'zip',dump_dir_snap_name)
