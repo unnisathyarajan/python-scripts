@@ -37,7 +37,7 @@ def mongodb_backup(dump_dir,database_name):
  try:
   return_stat = subprocess.call(['/usr/bin/mongodump','--db', database_name ,'--out',dump_dir])
  except:
-  print("Error! Failed to talk mongodump")
+  print("mongodump command failed!")
  
 #Append date with dump directory name
  dump_dir_snap_name= dump_dir +"/"+database_name+"-"+ str(snap_date)
