@@ -45,6 +45,7 @@ To delete/revoke a rule in a security group. (rest is same as above.)
 c)mongodb-backup.py
 -------------------------------------------
 To take mongodb dump and upload to S3 bucket.
+The access key and secret key is not required if the script is been executed in an EC2 instance with a role associated that has S3 upload permissions.
 
 **Usage:**
 
