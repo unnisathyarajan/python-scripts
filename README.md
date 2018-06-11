@@ -46,7 +46,7 @@ c)mongodb-backup.py
 -------------------------------------------
 To take mongodb dump and upload to S3 bucket.
 
-**Usage**
+**Usage:**
 
 ```
 ./mongodb-backup.py --help
@@ -64,7 +64,7 @@ optional arguments:
                                  retained without deletion)
 ```
 
-**Example**
+**Example:**
 ```
 ./mongodb-backup.py --s3bucket mongodb-backup-bucket --ret 10 --dbname myapp
 ```
