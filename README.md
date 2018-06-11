@@ -39,3 +39,34 @@ optional arguments:
 aws_security_groups_cli_update/revoke-sg.py
 -------------------------------------------
 To delete/revoke a rule in a security group. (rest is same as above.)
+
+
+
+mongodb-backup.py
+-------------------------------------------
+To talk mongodb dump and upload to S3 bucket.
+
+**Usage**
+
+```
+./mongodb-backup.py --help
+usage: mongodb-backup.py [-h] [--ak AK] [--sk SK] [--dir [DIR]]
+                         [--s3bucket S3BUCKET] [--dbname DBNAME] [--ret [RET]]
+
+optional arguments:
+  -h, --help                     show this help message and exit
+  --ak AK (optional)             Access Key (ak), Example: KKIAJNXOI3GW3MLVIULN
+  --sk SK (optional)             Secret Key (sk), Example: fg3iubaaLDpNiz0swzgHaL
+  --dir [DIR]                    Dump Directory, Default: /mongodb-snapshot
+  --s3bucket S3BUCKET            S3 bucket name, Example: mongodb-backup-bucket
+  --dbname DBNAME                MongoDB database name, Example: myappdb
+  --ret [RET] (optional)         Retention in days, Default: 7 (7 days of backup will be
+                                 retained without deletion)
+```
+
+**Example**
+```
+./mongodb-backup.py --s3bucket mongodb-backup-bucket --ret 10 --dbname myapp
+```
+
+
