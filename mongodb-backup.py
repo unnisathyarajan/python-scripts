@@ -11,7 +11,7 @@ import time
 
 
 
-def s3_upload(access_keys,secret_keys,source_file,dest_s3_obj_name):
+def s3_upload(access_keys,secret_keys,source_file,dest_s3_obj_name,bucket_name):
  if access_keys is not None or secret_keys is not None:
   s3 = boto3.resource('s3',aws_access_key_id=access_keys, aws_secret_access_key=secret_keys)
   print("S3 Connection Established")
@@ -21,8 +21,8 @@ def s3_upload(access_keys,secret_keys,source_file,dest_s3_obj_name):
   print("S3 Connection established using EC2 role.")
   
  	
- print("Uploading to S3 bucket... ")
- s3.meta.client.upload_file(source_file, 'talk-mongodb-backup', dest_s3_obj_name)
+ print("Uploading to S3 bucket: "+ bucket_name +" ... ")
+ s3.meta.client.upload_file(source_file, bucket_name, dest_s3_obj_name)
  
 
 
@@ -72,15 +72,23 @@ def main():
  parser.add_argument("--ak", help="Access Key (ak), Example: KKIAJNXOI3GW3MLVIULN")
  parser.add_argument("--sk", help="Secret Key (sk), Example: fg3iubaaLDpNiz0swzgHaL")
  parser.add_argument("--dir", help="Dump Directory, Default: /mongodb-snapshot", nargs='?', default="/mongodb-snapshot")
+ parser.add_argument("--s3bucket", help="S3 bucket name, Example: mongodb-backup-bucket")
  parser.add_argument("--ret", help="Retention in days, Default: 7 (7 days of backup will be retained without deletion)", nargs='?', type=int, default=7)
  args = parser.parse_args()
+
+
+ if args.s3bucket:
+  bucket_name=args.s3bucket
+ else:
+  print("Please specify S3 Bucket")
+  exit()
 
 #MongoDB Backup Function
  zip_name = mongodb_backup(args.dir)
  s3_oject_name = zip_name.split("/")[2]
 
 #Upload to S3 Bucket
- s3_upload(args.ak,args.sk,zip_name,s3_oject_name)
+ s3_upload(args.ak,args.sk,zip_name,s3_oject_name,bucket_name)
 
 #Cleanup
  cleanup(args.ret,args.dir)
