@@ -44,7 +44,7 @@ To delete/revoke a rule in a security group. (rest is same as above.)
 
 c)mongodb-backup.py
 -------------------------------------------
-To talk mongodb dump and upload to S3 bucket.
+To take mongodb dump and upload to S3 bucket.
 
 **Usage**
 
