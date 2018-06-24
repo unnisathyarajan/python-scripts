@@ -57,16 +57,15 @@ def mongodb_backup(dump_dir,database_name):
 def cleanup(retention_period_days,directory):
  print("Cleanup Started!!")
  current_time = time.time()
- 
  for single_file in os.listdir(directory):
   file_path = directory+"/"+single_file
   creation_time = os.path.getctime(file_path)
   if (current_time - creation_time) // (24 * 3600) >= float(retention_period_days):
-   if os.path.isfile(single_file):
-    os.unlink(single_file)
+   if os.path.isfile(file_path):
+    os.unlink(file_path)
     print("File older than "+ str(retention_period_days) +" days "+single_file)
-   elif os.path.isdir(single_file): 
-    shutil.rmtree(single_file)
+   elif os.path.isdir(file_path): 
+    shutil.rmtree(file_path)
     print("File older than "+ str(retention_period_days) +" days "+single_file)
 
 
