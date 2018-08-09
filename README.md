@@ -72,6 +72,7 @@ optional arguments:
 
 
 d)uploader.py
+-------------------------------------------
 Script to copy images without gzip header while the sync uploads all files with gzip header. It is used as a side script in CI/CD pipeline job.
 
 **Usage:**
