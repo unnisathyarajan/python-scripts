@@ -11,7 +11,7 @@ To add/authorize a rule in a security group.
 [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
 #### Prequisite
-* boto3 >= v1.4.7 
+* boto3 >= v1.4.7
 * python 2.7
 
 **Usage:**
@@ -71,3 +71,13 @@ optional arguments:
 ```
 
 
+d)uploader.py
+Script to copy images without gzip header while the sync uploads all files with gzip header. It is used as a side script in CI/CD pipeline job.
+
+**Usage:**
+
+```
+./uploader.py . bucketname/dir/
+Argument #1 : to mention the source path
+Argument #2 : bucket name and directory with a trailing /
+```
