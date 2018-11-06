@@ -92,7 +92,7 @@ First login to server and execute $iperf -s. Second login to client, download th
 **Usage:**
 
 ```
-./uploader.py . bucketname/dir/
+./bandwith-exporter.py  --ip IPADDRESS
 Argument #1 : IP Address of server
 Argument #2 : server port (optional)
 ```
