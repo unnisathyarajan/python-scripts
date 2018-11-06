@@ -82,3 +82,23 @@ Script to copy images without gzip header while the sync uploads all files with 
 Argument #1 : to mention the source path
 Argument #2 : bucket name and directory with a trailing /
 ```
+
+
+d)prometheus_custom_metric_exporter.py
+-------------------------------------------
+To export prometheus format metrics on bandwidth between 2 machines.
+1.Login to server and execute $iperf -s
+2.Login to client, download the script and run it.
+
+**Usage:**
+
+```
+./uploader.py . bucketname/dir/
+Argument #1 : IP Address of server
+Argument #2 : server port (optional)
+```
+
+**Example:**
+```
+./bandwith-exporter.py  --ip 1.2.3.4
+```
