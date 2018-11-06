@@ -87,8 +87,7 @@ Argument #2 : bucket name and directory with a trailing /
 d)prometheus_custom_metric_exporter.py
 -------------------------------------------
 To export prometheus format metrics on bandwidth between 2 machines.
-1.Login to server and execute $iperf -s
-2.Login to client, download the script and run it.
+First login to server and execute $iperf -s. Second login to client, download the script and run it.
 
 **Usage:**
 
