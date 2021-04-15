@@ -8,18 +8,6 @@ def main():
  cidr=my_public_ip + str("/32")
  print "Your Public IP: " + cidr 
 
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 if __name__ == "__main__":
  main()
-
