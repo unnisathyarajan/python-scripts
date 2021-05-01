@@ -101,3 +101,19 @@ Argument #2 : server port (optional)
 ```
 ./bandwith-exporter.py  --ip 1.2.3.4
 ```
+d)pdfmailer.py
+-------------------------------------------
+This is opensource self-hosted alternative for READWISE service based on publicly accessible PDF files.
+You would require a server and an email service subscription to host this script. 
+
+**Usage:**
+
+```
+Run the script as a cron job.
+update the script with bookname, book_url and smtp credentials.
+```
+
+**Example:**
+```
+pdfmailer.sh
+```
